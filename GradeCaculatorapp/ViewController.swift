@@ -26,13 +26,13 @@ class ViewController: UIViewController
     
     var total2 = ""
     
-    var myInt1 = 0
+    var myInt1:Float = 0.0
     
-    var myInt2 = 0
+    var myInt2:Float = 0.0
     
-    var myInt3 = 0
+    var myInt3:Float = 0.0
     
-    var totalGrade = 0
+    var totalGrade:Float = 0.0
     
     
     
@@ -52,21 +52,12 @@ class ViewController: UIViewController
         total1 = yourNeededGrade.text ?? ""
         total2 = yourFinalExamWeight.text ?? ""
         
-        myInt1 = Int(total) ?? 0
-        myInt2 = Int(total1) ?? 0
-        myInt3 = Int(total2) ?? 0
+        myInt1 = Float(total) ?? 0.0
+        myInt2 = Float(total1) ?? 0.0
+        myInt3 = Float(total2) ?? 0.0
         
-        totalGrade = Int(myInt1) + Int(exactly: myInt2)! * Int(myInt3)
+        totalGrade = myInt2 - myInt1*(myInt3/100)
         gradeTotal.text = "\(totalGrade)"
-        
-        //myInt1=totalGrade, myInt2=0, myInt3 = myInt3
-        
-        //totalGrade-myInt3 / myInt1 = myInt2
-        
-        
-        let myInt3 = 0
-        let Float = Float(myInt3)
-        
         
     }
     
