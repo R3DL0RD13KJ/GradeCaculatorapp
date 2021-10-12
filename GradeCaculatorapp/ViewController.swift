@@ -32,8 +32,11 @@ class ViewController: UIViewController
     
     var myInt3 = 0
     
-    var totalGrade = 0.0
+    var totalGrade = 0
     
+    
+    
+
     
     override func viewDidLoad()
     {
@@ -53,10 +56,24 @@ class ViewController: UIViewController
         myInt2 = Int(total1) ?? 0
         myInt3 = Int(total2) ?? 0
         
-        //totalGrade = Double(("myInt1") + Double("myInt2") + Double("myInt3"))
+        totalGrade = Int(myInt1) + Int(exactly: myInt2)! * Int(myInt3)
+        gradeTotal.text = "\(totalGrade)"
+        
+        //myInt1=totalGrade, myInt2=0, myInt3 = myInt3
+        
+        //totalGrade-myInt3 / myInt1 = myInt2
+        
+        
+        let myInt3 = 0
+        let Float = Float(myInt3)
+        
         
     }
     
+    @IBAction func clearText(_ sender: Any)
+    {
+        
+    }
     
 }
 
