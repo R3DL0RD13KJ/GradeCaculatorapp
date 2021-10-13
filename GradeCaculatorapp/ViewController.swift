@@ -56,7 +56,7 @@ class ViewController: UIViewController
         myInt2 = Float(total1) ?? 0.0
         myInt3 = Float(total2) ?? 0.0
         
-        totalGrade = myInt2 - myInt1*(myInt3/100)
+        totalGrade = (myInt2 - myInt1*(1-myInt3/100)) / (myInt3/100)
         gradeTotal.text = "\(totalGrade)"
         
     }
