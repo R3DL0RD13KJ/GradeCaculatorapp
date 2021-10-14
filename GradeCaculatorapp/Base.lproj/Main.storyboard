@@ -73,6 +73,9 @@
                                     <segment title="C"/>
                                     <segment title="D"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentpizza:" destination="BYZ-38-t0r" eventType="valueChanged" id="qM1-TS-w7D"/>
+                                </connections>
                             </segmentedControl>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mew-8Q-GNQ">
                                 <rect key="frame" x="61" y="517" width="290" height="127"/>
@@ -92,6 +95,8 @@
                     <connections>
                         <outlet property="extraCredit" destination="Jud-IW-vdD" id="zBL-MZ-bls"/>
                         <outlet property="gradeTotal" destination="L8Z-oM-F5x" id="g9g-zW-ECI"/>
+                        <outlet property="pickerView" destination="mew-8Q-GNQ" id="Ujp-7a-ofe"/>
+                        <outlet property="segmentController" destination="3qU-Mw-MX2" id="ctY-Af-QYo"/>
                         <outlet property="yourCurrentGrade" destination="5qI-mu-EVO" id="fUE-eb-hXV"/>
                         <outlet property="yourFinalExamWeight" destination="v0M-gK-ZcS" id="sZP-8k-awf"/>
                         <outlet property="yourNeededGrade" destination="IRR-PW-qZs" id="mBn-Dy-iNj"/>

@@ -7,8 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
+
 {
+ 
+    
     // Outlets
 
     @IBOutlet weak var gradeTotal: UILabel!
@@ -21,6 +24,9 @@ class ViewController: UIViewController
     
     @IBOutlet weak var extraCredit: UILabel!
     
+    @IBOutlet weak var segmentController: UISegmentedControl!
+    
+    @IBOutlet weak var pickerView: UIPickerView!
     
     
     // Variables
@@ -38,17 +44,54 @@ class ViewController: UIViewController
     
     var totalGrade:Float = 0.0
     
+    let letter = ["A", "B", "C", "D"]
     
     
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return letter.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return letter[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        view.endEditing(true)
+    
+    switch row
+    {
+    case 0:
+        yourNeededGrade.text = "90"
+    case 1:
+        yourNeededGrade.text = "80"
+    case 2:
+        yourNeededGrade.text = "70"
+    case 3:
+        yourNeededGrade.text = "60"
+    default:
+        yourNeededGrade.text = "No Segment Selected"
 
+    }
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+       
     }
-
-
+    
     //Buttons
     
     
@@ -86,10 +129,24 @@ class ViewController: UIViewController
             extraCredit.text = "Ask for Extra Credit"
         }
         
+        
     }
-    
-    
-    
+    @IBAction func segmentpizza(_ sender: Any)
+    {
+        switch segmentController.selectedSegmentIndex
+        {
+        case 0:
+            yourNeededGrade.text = "90"
+        case 1:
+            yourNeededGrade.text = "80"
+        case 2:
+            yourNeededGrade.text = "70"
+        case 3:
+            yourNeededGrade.text = "60"
+        default:
+            yourNeededGrade.text = "No Segment Selected"
+        }
+    }
     
     //Clear Button
     @IBAction func clearText(_ sender: Any)
@@ -100,8 +157,11 @@ class ViewController: UIViewController
         extraCredit.text = "Grade Caculator"
         gradeTotal.text = "Total"
         self.view.backgroundColor = UIColor.white
-        
     }
+    
+    
+    
+    
     
 }
 
